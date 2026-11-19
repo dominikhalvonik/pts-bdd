@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
+import java.util.Map;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,6 +55,13 @@ public final class BrowserFactory {
 
     private static WebDriver chrome(TestConfig config, File executable) {
         ChromeOptions options = new ChromeOptions();
+        // Len dočasný profil tohto testu: učebné prihlasovacie údaje nemajú
+        // vyvolávať ponuku uloženia hesla ani natívny dialóg o úniku hesla.
+        Map<String, Object> preferences = Map.of(
+            "credentials_enable_service", false,
+            "profile.password_manager_leak_detection", false
+        );
+        options.setExperimentalOption("prefs", preferences);
         if (config.headless()) options.addArguments("--headless=new");
         if (!config.browserBinary().isBlank()) options.setBinary(config.browserBinary());
         return executable == null ? new ChromeDriver(options)
