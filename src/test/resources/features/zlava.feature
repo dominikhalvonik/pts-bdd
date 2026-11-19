@@ -2,7 +2,6 @@
 Feature: Zaokrúhlenie zľavy na celé centy
   Zľava STUDENT10 je 10 percent z medzisúčtu.
   Zaokrúhľuje sa jedenkrát na konci spôsobom half-up.
-  Pravidlo: docs/PRAVIDLA_A_SCENARE.md, AC_CENA_03.
 
   Scenario: Pol centa sa pri výpočte zľavy zaokrúhli nahor
     Given používateľ má PAD-001 v množstve 1

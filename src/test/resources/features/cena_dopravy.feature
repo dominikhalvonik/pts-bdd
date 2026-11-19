@@ -2,7 +2,6 @@
 Feature: Cena dopravy po uplatnení zľavy
   Kuriér je zdarma od 10000 centov za produkty po zľave.
   Pod touto hranicou stojí 490 centov. Osobný odber je zdarma.
-  Pravidlo: docs/PRAVIDLA_A_SCENARE.md, AC_CENA_04.
 
   Rule: Hranica bezplatného kuriéra sa posudzuje po zľave
 
